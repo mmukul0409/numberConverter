@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "authors": [
+    "mmukul0409 <31900606+mmukul0409@users.noreply.github.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-mocks": "^1.6.6"
+  }
+}

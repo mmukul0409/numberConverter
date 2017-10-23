@@ -36,7 +36,7 @@ describe('Testing Ang TEst Suite', function() {
 
         it('should should not accept negative numbers', function() {
             var result = checkSerivce.convertCheck(-1);
-            expect(result).toBe('Please enter Positive Digits Only');
+            expect(result).toBe('Please enter Positive Digits');
         });
 
         it('should add convert number to words', function() {
@@ -55,7 +55,7 @@ describe('Testing Ang TEst Suite', function() {
         });
 
         it('should not accept very large numbers', function() {
-            var result = checkSerivce.convertCheck(73298793232313123131332);
+            var result = checkSerivce.convertCheck(7373819379092182781);
             expect(result).toBe('Please Enter a smaller Digit');
         });
 

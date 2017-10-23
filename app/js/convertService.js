@@ -7,26 +7,26 @@ var checkWriter = function() {
     var numbersBelowHundred = ["", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
 
 
-    var convertToWords = function(num) {
-        var result = "";
+    var convertToWords = function(number) {
+        var englishWord = "";
 
-        if (num < 10) result = numbersBelowTen[num]
-        else if (num < 20) result = numbersBelowTwenty[num - 10];
-        else if (num < 100) result = numbersBelowHundred[parseInt(num / 10)] + " " + convertToWords(num % 10);
-        else if (num < 1000) result = convertToWords(parseInt(num / 100)) + " Hundred " + convertToWords(num % 100);
-        else if (num < 1000000) result = convertToWords(parseInt(num / 1000)) + " Thousand " + convertToWords(num % 1000);
-        else if (num < 1000000000) result = convertToWords(parseInt(num / 1000000)) + " Million " + convertToWords(num % 1000000);
-        else result = convertToWords(parseInt(num / 1000000000)) + " Billion " + convertToWords(num % 1000000000);
-        return result;
+        if (number < 10) englishWord = numbersBelowTen[number]
+        else if (number < 20) englishWord = numbersBelowTwenty[number - 10];
+        else if (number < 100) englishWord = numbersBelowHundred[parseInt(number / 10)] + " " + convertToWords(number % 10);
+        else if (number < 1000) englishWord = convertToWords(parseInt(number / 100)) + " Hundred " + convertToWords(number % 100);
+        else if (number < 1000000) englishWord = convertToWords(parseInt(number / 1000)) + " Thousand " + convertToWords(number % 1000);
+        else if (number < 1000000000) englishWord = convertToWords(parseInt(number / 1000000)) + " Million " + convertToWords(number % 1000000);
+        else englishWord = convertToWords(parseInt(number / 1000000000)) + " Billion " + convertToWords(number % 1000000000);
+
+        return englishWord;
     };
 
     var validateNumber = function(input) {
-        var regx = /^[A-Za-z0-9]+$/;
-        if (input == 0) return "Zero";
-        if (input < 0) return "Please enter Positive Digits Only";
-        if (input.toString().length > 12) return "Please Enter a smaller Digit";
-        if (!regx.test(input)) return "Illegel characters , please enter Positive Digits only";
-        return convertToWords(input);
+        var numberToConvert = parseInt(input);
+        if (numberToConvert == 0) return "Zero";
+        if (numberToConvert < 0) return "Please enter Positive Digits";
+        if (numberToConvert.toString().length > 12) return "Please Enter a smaller Digit";
+        return convertToWords(numberToConvert);
     };
 
     return {

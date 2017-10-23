@@ -18,7 +18,7 @@ describe('Testing Ang TEst Suite', function() {
 
         beforeEach(function() {
             inject(function($injector) {
-                checkSerivce = $injector.get('EnglishCheckWriter');
+                checkSerivce = $injector.get('EnglishCheckWriterService');
             });
         });
 

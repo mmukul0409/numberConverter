@@ -34,4 +34,4 @@ var checkWriter = function() {
     };
 };
 
-app.factory('EnglishCheckWriter', checkWriter);
+app.factory('EnglishCheckWriterService', checkWriter);

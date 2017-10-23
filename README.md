@@ -18,7 +18,7 @@ git clone https://github.com/mmukul0409/numberConverter
 cd check-writer
 ```
 
-## Install npm packages the npm packages described in the `package.json` and verify that it works:
+## Install npm packages described in the `package.json` and verify that it works:
 
 ```shell
 npm install

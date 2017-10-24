@@ -1,1 +1,1 @@
-var app = angular.module('testingAngularApp', []);
+var app = angular.module('chequeWriterApplication', []);

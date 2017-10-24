@@ -10,11 +10,11 @@
       });
 
       it('should have a title', function() {
-          expect(browser.getTitle()).toEqual('Testing Angular');
+          expect(browser.getTitle()).toEqual('Cheque Writer Application');
       });
 
-      it('should have a Convert BUtton', function() {
-          expect(confirmButton.getText()).toBe('Convert to Check');
+      it('should have a Convert Button', function() {
+          expect(confirmButton.getText()).toBe('Currency Value');
       });
 
       it('should have a Inout Box', function() {
@@ -24,25 +24,25 @@
       it('should convert number to words', function() {
           inputBox.sendKeys(12);
           confirmButton.click();
-          expect(result.getText()).toEqual('Twelve only');
+          expect(result.getText()).toEqual('Twelve dollars only');
       });
 
       it('should validate Negative Numbers', function() {
           inputBox.sendKeys(-12);
           confirmButton.click();
-          expect(result.getText()).toEqual('Please enter Positive Digits only');
+          expect(result.getText()).toEqual('Please enter positive digits dollars only');
       });
 
       it('should validate very Large Numbers', function() {
           inputBox.sendKeys(7398721371927392187);
           confirmButton.click();
-          expect(result.getText()).toEqual('Please Enter a smaller Digit only');
+          expect(result.getText()).toEqual('Please enter smaller digit dollars only');
       });
 
       it('clear button should reset input box and displayed results', function() {
           inputBox.sendKeys(7398721371927392187);
           confirmButton.click();
-          expect(result.getText()).toEqual('Please Enter a smaller Digit only');
+          expect(result.getText()).toEqual('Please enter smaller digit dollars only');
           clearButton.click();
           expect(result.getText()).toEqual('');
           expect(inputBox.getText()).toEqual('');
@@ -64,12 +64,12 @@
        it('should display round off to two decimal places and display fraction when decimal no is provided', function() {
           inputBox.sendKeys(12.86563253);
           confirmButton.click();
-          expect(result.getText()).toEqual('Twelve and 87/100');
+          expect(result.getText()).toEqual('Twelve dollars and 87/100 cents.');
       });
       
-      it('should display number and append word "only" if there is zero after decimanl points ', function() {
+      it('should display number and append word "only" if there is zero after decimal points ', function() {
           inputBox.sendKeys(12.00);
           confirmButton.click();
-          expect(result.getText()).toEqual('Twelve only');
+          expect(result.getText()).toEqual('Twelve dollars only');
       });
   });

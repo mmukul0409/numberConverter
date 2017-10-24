@@ -1,20 +1,15 @@
-app.controller("checkController", function($scope, EnglishCheckWriterService, ConcatenationService) {
+app.controller("chequeController", function($scope, ChequeWriterFactory, ConcatenationFactory) {
 
-    $scope.title = "CheckWiterApplication";
+    $scope.title = "ChequeWiterApplication";
 
     $scope.toEnglish = function(input) {
         if (input && !isNaN(input)) {
-            if (input % 1 === 0) {
-                $scope.finalnumInEnglish = EnglishCheckWriterService.convertCheck(input);
-            } else {
                 var result = Math.round(input * 100) / 100;
                 var numArray = result.toString().split('.');
                 var integerPart = numArray[0];
                 var decimalPart = numArray[1];
-                var numInEnglish = EnglishCheckWriterService.convertCheck(integerPart);
-                $scope.finalnumInEnglish = ConcatenationService.concatanate(numInEnglish, decimalPart);
-            }
-
+                var numInEnglish = ChequeWriterFactory.convertCheck(integerPart);
+                $scope.finalnumInEnglish = ConcatenationFactory.concatanate(numInEnglish, decimalPart);
         } else {
             $scope.finalnumInEnglish = "Invalid entry. Please enter a number to continue";
         }
@@ -23,5 +18,11 @@ app.controller("checkController", function($scope, EnglishCheckWriterService, Co
     $scope.reset = function() {
         $scope.input = "";
         $scope.finalnumInEnglish = "";
+    }
+});
+
+app.filter('capitalizeFirstLetter', function() {
+    return function(input) {
+      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
     }
 });
